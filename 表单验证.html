@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.atter {
+			color: red;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<input type="text" id="inp1"><span></span><br>
+		
+		<input type="text" id="inp2"><span></span>
+		<input id="checkbox" type="checkbox">
+	</div>
+	<script>
+		let inp1 = document.querySelector('#inp1')
+		let inp2 = document.querySelector('#inp2')
+		let checkbox = document.querySelector('#checkbox')
+		checkbox.onclick = function() {
+			console.dir(this);
+		}
+		inp1.onkeyup = function() {
+			console.dir(this);
+			this.nextSibling.setAttribute('class', 'atter');
+			if(this.value.length<3 || this.value.length>6) {
+				this.nextSibling.innerHTML = '请正确输入密码';
+			} else {
+				this.nextSibling.innerHTML ='';
+			}
+		}
+	</script>
+</body>
+</html>
