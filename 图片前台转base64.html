@@ -10,12 +10,36 @@
 	<div id="father">
 		<div id="children">
 			<input type="file" id="filebtn">
+			<input type="button" value="按钮" onclick="test()">
+			<input type="button" value="清除图片" id="cleanimg">
+		</div>
+		<div>
+			 <img id="innerimg">
 		</div>
 	</div>
 	<script>
-		let file = document.querySelector('#filebtn');
+		var file = document.querySelector('#filebtn');
+		var inimg = document.querySelector('#innerimg');
+		var cleanimg = document.querySelector('#cleanimg')
 		file.onclick = function() {
 			console.dir(this);
+		}
+		function test() {
+			console.dir(file.files[0]);
+			var filetest = file.files[0];
+/* 			var img = window.URL.createObjectURL(filetest); // 创建文件的url对象可以取到blob链接(二进制)
+			console.log(img); */
+			var render = new FileReader(); // 创建读取文件对象
+			render.readAsDataURL(filetest); // 执行读取文件操作 //readAsDataURL是render中读取文件的方法 具体可看https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader
+			render.onload=function(e) {    // 当文件读取完成时间
+        alert('文件读取完成');
+				console.log(e.target.result);
+        inimg.setAttribute('src', e.target.result);
+    };
+
+		}
+		cleanimg.onclick = function() {
+			inimg.removeAttribute('src');
 		}
 	</script>
 </body>
