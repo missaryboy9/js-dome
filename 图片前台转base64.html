@@ -21,8 +21,17 @@
 		var file = document.querySelector('#filebtn');
 		var inimg = document.querySelector('#innerimg');
 		var cleanimg = document.querySelector('#cleanimg')
-		file.onclick = function() {
+		file.onload = function() {
 			console.dir(this);
+			if(this.size>500) {
+				alert('存储的图片太大')
+				return
+			} else if(this.type !== "image/jpg") {
+				alert('存储的类型不对')
+				return
+			} else {
+				alert('已存储')
+			}
 		}
 		function test() {
 			console.dir(file.files[0]);

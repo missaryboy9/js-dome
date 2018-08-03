@@ -10,15 +10,31 @@
 			color: red;
 			margin-left: 10px;
 		}
+		legend {
+			background-color: #000;
+			color: wheat;
+			height: 20px;
+			width: 50px;
+			font-size: 20px;
+		}
+		fieldset {
+			width: 200px;
+			padding-top: 20px;
+		}
 	</style>
 </head>
 <body>
-	<div id="father">
-		<input type="text" id="inp1"><span></span><br>
-		
-		<input type="text" id="inp2"><span></span>
-		<input id="checkbox" type="checkbox">
-	</div>
+	<fieldset>
+		<legend>test</legend>
+	<from>
+		<div id="father">
+			<input type="text" id="inp1" placeholder="请输入密码"><span></span><br>
+			
+			<input type="password" id="inp2" placeholder="请再次输入密码"><span></span>
+		</div>
+		<input type="submit" value="Singo in" style="float:right">
+	</from>
+	</fieldset>
 	<script>
 		let inp1 = document.querySelector('#inp1')
 		let inp2 = document.querySelector('#inp2')
@@ -34,6 +50,9 @@
 			} else {
 				this.nextSibling.innerHTML ='';
 			}
+		}
+		input2.onkeyup = function () {
+			
 		}
 	</script>
 </body>
