@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		select {
+			height: 150px;
+			width: 100px;
+			border-radius: 5px;
+		}
+		#right {
+			vertical-align: bottom
+		}
+	</style>
+</head>
+<body>
+	<select id="left" multiple="multiple">
+		<option value ="测试1">测试1</option>
+		<option value ="测试2">测试2</option>
+		<option value ="测试3">测试3</option>
+		<option value ="测试4">测试4</option>
+		<option value ="测试5">测试5</option>
+		<option value ="测试6">测试6</option>
+		<option value ="测试1">测试7</option>
+	</select>
+	<button id="btnr">&gt;&gt;</button>
+	<button id="btnl">&lt;&lt;</button>
+	<button id="btndr">&lt;</button>
+	<button id="btndl">&gt;</button>
+	<select id="right" multiple="multiple">
+		
+	</select>
+	<script>
+		var right = document.querySelector('#right');
+		var left = document.querySelector('#left');
+		var btnr = document.querySelector('#btnr');
+		var btnl = document.querySelector('#btnl');
+		var btndr = document.querySelector('#btndr');
+		var btndl = document.querySelector('#btndl');
+		
+		btnr.onclick = function() {
+			let leftchild = left.children;
+			for(let i =0; i<leftchild.length;i++) {
+					console.dir(leftchild[i]);
+						right.appendChild(leftchild[i]);
+				i--;	
+			}
+		}
+		btnl.onclick = function() {
+			let rightchild = right.children;
+			for(let i =0; i<rightchild.length;i++) {
+					console.dir(rightchild[i]);
+						left.appendChild(rightchild[i]);
+				i--;	
+			}
+		}
+		btndr.onclick = function() {
+			let rightchild = right.children;
+			for(let i =0; i<rightchild.length;i++) {
+					if(rightchild[i].selected) {
+						left.appendChild(rightchild[i]);
+						i--
+					}	
+			}
+		}
+		btndl.onclick = function() {
+			let leftchild = left.children;
+			for(let i =0; i<leftchild.length;i++) {
+					if(leftchild[i].selected) {
+						right.appendChild(leftchild[i]);
+						i--
+					}	
+			}
+		}
+	</script>
+</body>
+</html>
