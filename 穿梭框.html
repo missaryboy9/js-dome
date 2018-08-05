@@ -34,6 +34,7 @@
 		
 	</select>
 	<script>
+		
 		var right = document.querySelector('#right');
 		var left = document.querySelector('#left');
 		var btnr = document.querySelector('#btnr');
@@ -61,6 +62,7 @@
 			let rightchild = right.children;
 			for(let i =0; i<rightchild.length;i++) {
 					if(rightchild[i].selected) {
+						rightchild[i].selected = false;
 						left.appendChild(rightchild[i]);
 						i--
 					}	
@@ -70,6 +72,7 @@
 			let leftchild = left.children;
 			for(let i =0; i<leftchild.length;i++) {
 					if(leftchild[i].selected) {
+						leftchild[i].selected = false;
 						right.appendChild(leftchild[i]);
 						i--
 					}	
