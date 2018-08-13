@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+	<div id="app">
+		<template>
+  <div class="app-container">
+
+    <el-tag style="margin-bottom:20px;">
+      <a href="https://github.com/PanJiaChen/vue-element-admin/tree/master/src/components/TreeTable" target="_blank">Documentation</a>
+    </el-tag>
+
+    <tree-table :data="data" :evalFunc="func" :evalArgs="args" :expandAll="expandAll" border>
+      <el-table-column label="事件">
+        <template slot-scope="scope">
+          <span style="color:sandybrown">{{scope.row.event}}</span>
+          <el-tag>{{scope.row.timeLine+'ms'}}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="时间线">
+        <template slot-scope="scope">
+          <el-tooltip effect="dark" :content="scope.row.timeLine+'ms'" placement="left">
+            <div class="processContainer">
+              <div class="process" :style="{ width:scope.row._width * 500+'px',
+              background:scope.row._width>0.5?'rgba(233,0,0,.5)':'rgba(0,0,233,0.5)',
+              marginLeft:scope.row._marginLeft * 500+'px' }">
+                <span style="display:inline-block"></span>
+              </div>
+            </div>
+          </el-tooltip>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="200">
+        <template slot-scope="scope">
+          <el-button type="text" @click="message(scope.row)">点击</el-button>
+        </template>
+      </el-table-column>
+    </tree-table>
+  </div>
+</template>
+			
+		</el-table>
+	</div>
+	<script>
+		var vue = new Vue({
+			el: '#app',
+			data:{
+				message: '2222'
+			},
+			methods:{
+				test() {
+					this.message = '33333';
+				}
+			}
+		})
+	</script>
+</body>
+</html>
