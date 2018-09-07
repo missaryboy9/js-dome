@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<country code="2510010001" name="户籍信息页" />
+	<country code="2510010002" name="人口信息页" />
+	<country code="2510010003" name="出生证明" />
+	<country code="2510010004" name="身份证申请表" />
+	<country code="2510010005" name="户籍迁移申请表" />
+	<country code="2510010006" name="户籍迁移证明" />
+	<country code="2510010007" name="户籍迁移介绍信" />
+	<country code="2510010008" name="死亡证明文件" />
+	<country code="2510010009" name="失踪证明文件" />
+	<country code="2510010010" name="参军证明文件" />
+	<country code="2510010011" name="死亡误等证明文件" />
+	<country code="2510010012" name="失踪寻回证明文件" />
+	<country code="2510010013" name="退伍证明文件" />
+</root>

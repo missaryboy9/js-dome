@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="jqueryui/style.css">
+</head>
+<body>
+	<h1>核心是document的document.execCommand()方法可以将前选中的内容进行拷贝</h1>
+	<p>此拷贝只用于可输入的标签内比如textarea和input</p>
+	<input type="text" id="btn1">
+	<button id="button">复制</button>
+	<script>
+		$('#button').click(function(){
+			let btn1 = $('#btn1');
+			btn1.select();
+			if(document.execCommand('copy')) {
+				document.execCommand('copy');
+				alert('赋值成功')
+			}
+		})
+		
+	</script>
+</body>
+</html>

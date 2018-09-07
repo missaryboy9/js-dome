@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+		<anchored level = 1></anchored>
+	</div>
+	<script>
+		Vue.component('anchored', {
+			render: function (createElement) {
+				return createElement(
+			  'h' + this.level,   // tag name 标签名称
+				this.$slots.default,// 子组件中的阵列
+				this.mess// 显示的信息
+				)
+			},
+			date() {
+				return {
+					mess: 1
+				}
+			},
+			props: {
+				level: {
+				type: Number,
+				required: true
+			}
+		  }
+		})
+		var app = new Vue({
+			el:'#app',
+			data: {
+				message: 'sssss'
+			},
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+涛哥项目组
+git@114.215.27.101:/nja-project-EthiopiaPmis-vue.git
+git@114.215.27.101:/nja-project-EthiopiaPmis.git
+
+雷哥项目组
+git@114.215.27.101:nja-project-pados-vue
+
+禅道地址:
+http://pm.bjnja.com/
+zhangbowen
+zhangbowen

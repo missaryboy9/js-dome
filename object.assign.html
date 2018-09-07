@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">test</button>
+	<script>
+		let btn = document.querySelector("#btn");
+		let a = {a:1,b:3,c:3};
+		let b = {b:3,c:4,d:5};
+		let c = {};
+		btn.onclick = function() {
+			c = Object.assign(a,b,{c:9})
+			console.log(c);
+		}
+	</script>
+</body>
+</html>

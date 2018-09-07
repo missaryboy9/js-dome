@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		#demo {
+            margin: 100px;;
+            background-color: #fff;
+            position: relative;
+            border: 2px solid #333;
+			border-radius: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+        }
+		p{
+			text-wrap: wrap;
+		}
+        #demo:after, #demo:before {
+            border: solid transparent;
+            content: ' ';
+            height: 0;
+            top: 100%;
+            position: absolute;
+            width: 0;
+        }
+
+        #demo:after {
+            border-width: 10px;
+            border-top-color: #fff;
+            left: 20px;
+        }
+
+        #demo:before {
+            border-width: 12px;
+            border-top-color: #000;
+            left: 18px;
+        }
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<p>
+			这是一个消息提示组件
+		</p>
+	</div>
+</body>
+</html>
