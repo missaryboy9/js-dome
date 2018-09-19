@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+ <head>  
+  <title> New Document </title>  
+  <meta name="Generator" content="EditPlus">  
+  <meta name="Author" content="">  
+  <meta name="Keywords" content="">  
+  <meta name="Description" content="">  
+  <style>  
+    .start_zyz{  
+        cursor:pointer;  
+    }  
+  
+  </style>  
+ </head>  
+  
+ <body>  
+  
+ <script type="text/javascript">  
+ <!--  
+        function clickStart(index){  
+            //★  
+  
+  
+            clearStart();  
+            // hide = index  
+  
+            for(var i=1;i<=index;i++){  
+                    var span = document.getElementById('start'+i);  
+                    //alert('span-->'+span)  
+                    span.innerHTML='★';  
+            }  
+  
+        }  
+  
+  
+  
+        function clearStart(){  
+            //★  
+  
+                    // hide = index  
+  
+            for(var i=1;i<=8;i++){  
+                    var span = document.getElementById('start'+i);  
+  
+                    span.innerHTML='☆';  
+            }  
+  
+        }  
+ //-->  
+ </script>  
+  
+  
+            <span onclick='clickStart(1)' id='start1' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(2)' id='start2' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(3)' id='start3' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(4)' id='start4' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(5)' id='start5' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(6)' id='start6' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(7)' id='start7' class='start_zyz'>☆</span>  
+            <span onclick='clickStart(8)' id='start8' class='start_zyz'>☆</span>  
+  
+  
+  
+  
+  
+ </body>  
+</html>  
