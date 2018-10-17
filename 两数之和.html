@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">测试</button>
+</body>
+	<script type="text/javascript">
+		var btn  = document.querySelector('#btn');
+		btn.addEventListener('click', function() {
+			alert(1);
+		})
+		/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+    var d = [];
+    let a = clear(daoxu(l1).toString());
+    let b = clear(daoxu(l2).toString());
+    let c = Number(a) + Number(b);
+    daoxuc(String(c));
+    return d;
+};
+    
+    // 倒序
+    var function daoxu (e) {
+        let t = e.sort((a, b) => {
+            return b-a
+        })
+        return t
+    }
+    // 倒叙插入
+    var function daoxuc (e) {
+        for(let i = e.length-1; i>=0 ; i--) {
+            d.push(e[i])
+        }
+    }
+
+    // 去除逗号
+    var function clear (e) { 
+        let g = e.replace(/,/g, ""); 
+        return g; 
+        }
+	</script>
+</html>

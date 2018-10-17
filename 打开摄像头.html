@@ -13,6 +13,7 @@
 </head>
 <body>
 	<button id="btn">打开摄像头</button>
+	<button id="btn1">关闭摄像头</button>
 	<button id="jeitu">截图</button>
 	<video id="video" height="400px" width="400px"></video>
 	<canvas id="cancas" width="400px" height="400px"></canvas>
@@ -20,10 +21,26 @@
 </body>
 <script type="text/javascript">
 	var btn = document.querySelector("#btn");
+	var btn1 = document.querySelector("#btn1");
 	var jeitu = document.querySelector("#jeitu");
 	var video = document.querySelector("#video");
 	var img = document.querySelector("#img");
 	var canvas = document.querySelector("#cancas");
+	var localMediaStream;
+	var callback = function(err) {
+         console.log("The following error occurred: " + err.name);
+      };
+	btn1.onclick = () => {
+		navigator.getUserMedia({video: true, audio: false}, function(stream) {
+                video.src = window.URL.createObjectURL(stream); 
+				localMediaStream=stream; 
+                }, function(e) { 
+                    console.log('Fine, you get a movie instead of your beautiful face ;)'); 
+                } 
+            );
+			localMediaStream.getTracks()[0].stop(); 
+			// video.src="";
+	}
 	btn.onclick = () => {
 		/* navigator.getMedia = navigator.getUserMedia ||
                          navagator.webkitGetUserMedia ||
@@ -37,16 +54,15 @@
 			video.src = window.URL.createObjectURL('strem');
 			video.play();
 		}) */
-		if(navigator.getMedia) {
-			navigator.getMedia({
-				video: true,
-				audio: false
+		if(navigator.getUserMedia) {
+			navigator.getUserMedia({
+				video: true
 			}, (strem) => {
-				video.src = window.URL.createObjectURL('strem');
+				video.src = window.webkitURL.createObjectURL(strem);
 				setTimeout(() => {
 					video.play();
 				}, 1000)
-			})
+			}, callback)
 		} else if (navigator.webkitGetUserMedia) {
 			navigator.webkitGetUserMedia({
 				video: true,
@@ -55,12 +71,21 @@
 				console.log(strem);
 				video.src = window.URL.createObjectURL(strem);
 				setTimeout(() => {
-					video.play();
+				video.play();
 				}, 1000);
 				
-			}, (error) => {
-				console.log(error);
-			})
+			}, callback)
+		} else if (navigator.mozGetUserMedia) {
+			navigator.mozGetUserMedia({
+				video: true,
+				audio: false
+			}, (strem) => {
+				video.mozSrcObject = stream;
+				setTimeout(() => {
+				video.play();
+				}, 1000);
+				
+			}, callback)
 		}
 		
 	}
