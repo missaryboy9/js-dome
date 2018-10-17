@@ -15,8 +15,8 @@
 	<button id="btn">打开摄像头</button>
 	<button id="btn1">关闭摄像头</button>
 	<button id="jeitu">截图</button>
-	<video id="video" height="400px" width="400px"></video>
-	<canvas id="cancas" width="400px" height="400px"></canvas>
+	<video id="video" height="100px"></video>
+	<canvas id="cancas" width="133px" height="100px"></canvas>
 	<image id="img"></image>
 </body>
 <script type="text/javascript">
@@ -39,7 +39,7 @@
                 } 
             );
 			localMediaStream.getTracks()[0].stop(); 
-			// video.src="";
+			video.src="";
 	}
 	btn.onclick = () => {
 		/* navigator.getMedia = navigator.getUserMedia ||
@@ -90,7 +90,7 @@
 		
 	}
 	jeitu.onclick = function() {
-		canvas.getContext('2d').drawImage(video, 0, 0 ,400, 300);
+		canvas.getContext('2d').drawImage(video, 0, 0, 133, 100);
 		img.src = canvas.toDataURL('image/png');
 	}
 	/* Navigator.getMedia({
