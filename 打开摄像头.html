@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		canvas {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">打开摄像头</button>
+	<button id="jeitu">截图</button>
+	<video id="video" height="400px" width="400px"></video>
+	<canvas id="cancas" width="400px" height="400px"></canvas>
+	<image id="img"></image>
+</body>
+<script type="text/javascript">
+	var btn = document.querySelector("#btn");
+	var jeitu = document.querySelector("#jeitu");
+	var video = document.querySelector("#video");
+	var img = document.querySelector("#img");
+	var canvas = document.querySelector("#cancas");
+	btn.onclick = () => {
+		/* navigator.getMedia = navigator.getUserMedia ||
+                         navagator.webkitGetUserMedia ||
+                         navigator.mozGetUserMedia ||
+                         navigator.msGetUserMedia;
+	
+		navigator.getMedia({
+			video: true,
+			audio: false
+		}, (strem) => {
+			video.src = window.URL.createObjectURL('strem');
+			video.play();
+		}) */
+		if(navigator.getMedia) {
+			navigator.getMedia({
+				video: true,
+				audio: false
+			}, (strem) => {
+				video.src = window.URL.createObjectURL('strem');
+				setTimeout(() => {
+					video.play();
+				}, 1000)
+			})
+		} else if (navigator.webkitGetUserMedia) {
+			navigator.webkitGetUserMedia({
+				video: true,
+				audio: false
+			}, (strem) => {
+				console.log(strem);
+				video.src = window.URL.createObjectURL(strem);
+				setTimeout(() => {
+					video.play();
+				}, 1000);
+				
+			}, (error) => {
+				console.log(error);
+			})
+		}
+		
+	}
+	jeitu.onclick = function() {
+		canvas.getContext('2d').drawImage(video, 0, 0 ,400, 300);
+		img.src = canvas.toDataURL('image/png');
+	}
+	/* Navigator.getMedia({
+		video: true,
+		audio: false
+	}),function(steam) {
+		
+	} */
+</script>
+</html>
