@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>tableVue</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<table border="1">
+			<tr>
+				<th>111</th>
+				<th>111</th>
+				<th>111</th>
+			</tr>
+			<tr v-for="item in json">
+				<td v-for="items in item">{{items}}</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'aaa',
+				json:[
+					{
+						name:111,
+						age:222,
+						gender:333
+					},
+					{
+						name:111,
+						age:222,
+						gender:333
+					},{
+						name:111,
+						age:222,
+						gender:333
+					},{
+						name:111,
+						age:222,
+						gender:333
+					},{
+						name:111,
+						age:222,
+						gender:333
+					}
+				]
+			},
+			methods:{
+				
+			},
+			watch(){
+				
+			}
+		})
+	</script>
+</body>
+</html>
