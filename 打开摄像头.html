@@ -9,13 +9,17 @@
 		canvas {
 			display: none;
 		}
+		video{
+			width: 600px;
+			height: 100px;
+		}
 	</style>
 </head>
 <body>
 	<button id="btn">打开摄像头</button>
 	<button id="btn1">关闭摄像头</button>
 	<button id="jeitu">截图</button>
-	<video id="video" height="100px"></video>
+	<video id="video"></video>
 	<canvas id="cancas" width="133px" height="100px"></canvas>
 	<image id="img"></image>
 </body>
@@ -92,6 +96,7 @@
 	jeitu.onclick = function() {
 		canvas.getContext('2d').drawImage(video, 0, 0, 133, 100);
 		img.src = canvas.toDataURL('image/png');
+		console.log(img.src);
 	}
 	/* Navigator.getMedia({
 		video: true,
