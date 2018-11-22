@@ -2,7 +2,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	entry: './src/main.js',
 	output: {
 		path: __dirname + './build',
@@ -36,7 +36,18 @@ module.exports = {
 					},
 				]
 			},
-			{ test: /\.(eot|woff)$/, loader: "file-loader" }
+			{ test: /\.(eot|woff)$/, loader: "file-loader" },
+			{
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 81920
+            }
+          }
+        ]
+      }
 
 		]
 	},

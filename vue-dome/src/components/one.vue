@@ -1,6 +1,10 @@
 <template>
     <div>
         {{message}}
+		<tree :data="data"
+			@toggle="toggle($event)"
+			@change="change($event)">
+		</tree>
     </div>
 </template>
 <script>
@@ -12,3 +16,6 @@ export default {
   }
 }
 </script>
+<style>
+
+</style>

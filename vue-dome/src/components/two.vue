@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-button @click="dialogVisible = true">1111</el-button>
-        <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+        <el-dialog v-posdialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
             <span>这是一段信息</span>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
@@ -12,6 +12,19 @@
 </template>
 <script>
 export default {
+  directives: {
+    posdialog: {
+      // 指令的定义
+      inserted: function(el) {
+        const dragDom = el.querySelector('.el-dialog')
+        dragDom.style.left = `40%`
+        dragDom.style.top = `-13%`
+        dragDom.style.width = `15%`
+        dragDom.style.minWidht = `15%`
+        dragDom.style.height = `60%`
+      }
+    }
+  },
   data() {
     return {
       dialogVisible: false

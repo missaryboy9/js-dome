@@ -11,7 +11,7 @@
 		}
 		video{
 			width: 600px;
-			height: 100px;
+			height: 400px;
 		}
 	</style>
 </head>
@@ -20,7 +20,7 @@
 	<button id="btn1">关闭摄像头</button>
 	<button id="jeitu">截图</button>
 	<video id="video"></video>
-	<canvas id="cancas" width="133px" height="100px"></canvas>
+	<canvas id="cancas" width="600px" height="400px"></canvas>
 	<image id="img"></image>
 </body>
 <script type="text/javascript">
@@ -94,7 +94,7 @@
 		
 	}
 	jeitu.onclick = function() {
-		canvas.getContext('2d').drawImage(video, 0, 0, 133, 100);
+		canvas.getContext('2d').drawImage(video, 0, 0, 600, 400);
 		img.src = canvas.toDataURL('image/png');
 		console.log(img.src);
 	}
