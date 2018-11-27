@@ -56,5 +56,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './index.html'
 		})
-	]
+	],
+	devServer: {
+		proxy: {
+		  '/test': '192.168.0.115:8000'
+		}
+  }
 }

@@ -9,7 +9,8 @@ import b from '../components/two.vue'
 const router = new VueRouter({
     routes: [
         { path: '/one', component: a },
-        { path: '/two', component: b }
+        { path: '/two', component: b },
+        { path: '/three', component: () => import('../components/three.vue') }
     ]
 })
 

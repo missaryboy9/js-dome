@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <el-button @click="dialogVisible = true">1111</el-button>
-        <el-dialog v-posdialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
-            <span>这是一段信息</span>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-            </span>
-        </el-dialog>
-    </div>
+  <div>
+    <el-button @click="dialogVisible = true">1111</el-button>
+    <el-dialog v-posdialog title="提示" :visible.sync="dialogVisible" :before-close="handleClose">
+      <span>这是一段信息</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
+  </div>
 </template>
 <script>
 export default {
@@ -20,7 +20,7 @@ export default {
         dragDom.style.left = `40%`
         dragDom.style.top = `-13%`
         dragDom.style.width = `15%`
-        dragDom.style.minWidht = `15%`
+        dragDom.style.minWidth = `230px`
         dragDom.style.height = `60%`
       }
     }
