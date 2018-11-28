@@ -8,6 +8,9 @@ module.exports = {
 		path: __dirname + './build',
 		filename: 'bundle.js'
 	},
+	performance: {
+		hints: false
+	},
 	module: {
 		rules: [
 			{
@@ -38,16 +41,16 @@ module.exports = {
 			},
 			{ test: /\.(eot|woff)$/, loader: "file-loader" },
 			{
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 81920
-            }
-          }
-        ]
-      }
+				test: /\.(png|jpg|gif)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 81920
+						}
+					}
+				]
+			}
 
 		]
 	},
@@ -59,7 +62,7 @@ module.exports = {
 	],
 	devServer: {
 		proxy: {
-		  '/test': '192.168.0.115:8000'
+			'/test': '192.168.0.115:8000'
 		}
-  }
+	}
 }

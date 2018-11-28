@@ -48,8 +48,10 @@
           <div
             class="fontstyle"
             style="color:#db2d43"
+            @mouseenter="mousestart"
+            @mouseleave="mouseleave"
           >
-            {{item.status}}
+            {{substring(item.status)}}
           </div>
         </li>
       </ul>
@@ -58,22 +60,48 @@
 </template>
 <script>
 export default {
+  props: {
+    itemdata: {
+      type: Array
+    }
+  },
   data() {
     return {
       items: [
         {
           value: "任务开始",
           time: "2018-11-01",
-          status: "已上报"
+          status: "已上报已上报已上报已上报已上报已上报"
         }
       ]
     };
+  },
+  methods: {
+    mousestart(e) {
+      let node = document.createElement("div");
+      let div = '<div class="positon">' + e.target.innerText + "</div>";
+      node.innerHTML = div;
+      e.target.appendChild(node);
+    },
+    mouseleave(e) {
+      e.target.removeChild(e.target.childNodes[1]);
+    },
+    substring(event) {
+      if (typeof event === "string") {
+        let data = event.length;
+        if (data > 20) {
+          return event.substring(0, 20) + "...";
+        } else {
+          return event;
+        }
+      }
+    }
   },
   computed: {
     statuslist: function() {
       let data = this.items.length;
       if (data > 3 || data <= 0) {
-        console.error("数据输入超出范围");
+        console.error("数据输入应为一个大于零小于3的数组");
         return 5;
       }
       return this.items.length;
@@ -82,6 +110,13 @@ export default {
 };
 </script>
 <style >
+.positon {
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: bisque;
+  top: "";
+  height: "";
+}
 .fontstyle {
   font-size: 13px;
 }
