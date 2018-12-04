@@ -11,7 +11,9 @@ const router = new VueRouter({
         { path: '/one', component: a },
         { path: '/two', component: b },
         { path: '/three', component: () => import('../components/three.vue') },
-        { path: '/four', component: () => import('../components/four.vue') }
+        { path: '/four', component: () => import('../components/four.vue') },
+        { path: '/five', component: () => import('../components/five.vue') },
+        { path: '/six', component: () => import('../components/treenodes/index.vue') }
     ]
 })
 

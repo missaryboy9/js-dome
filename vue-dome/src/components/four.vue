@@ -2,9 +2,15 @@
   <section>
     <div class="cander">
       <div class="cander_top">
-        <div>left</div>
-        <div>top</div>
-        <div>right</div>
+        <div
+          class="iconfont"
+          @click="Previous"
+        >&#xe665;</div>
+        <div>{{`${clickyear}-${clickmounth}`}}</div>
+        <div
+          class="iconfont"
+          @click="next"
+        >&#xe65f;</div>
       </div>
       <div class="cander_main">
         <div class="cander_main_top">
@@ -33,13 +39,22 @@
 export default {
   data() {
     return {
-      date: ["日", "一", "二", "三", "四", "五", "六"]
+      date: ["日", "一", "二", "三", "四", "五", "六"],
+      clickyear: new Date().getFullYear(),
+      clickmounth: new Date().getMonth() + 1
     };
   },
+  methods: {
+    Previous() {
+      alert(1);
+    },
+    next() {
+      alert(2);
+    }
+  },
   /**
-   * 整体思路
-   * 第一天是周几？
-   * 这个月有多少天？
+   * 第一天是周几
+   * 这个月有多少天
    */
   computed: {
     datas() {
@@ -51,10 +66,12 @@ export default {
       let allday = new Date(
         new Date(new Date().setMonth(mounth)).setDate(0)
       ).getDate();
-      for (let i = 0; i < dayone; i++) {
-        list.push({
-          day: 0
-        });
+      if (allday > 0) {
+        for (let i = 0; i < dayone; i++) {
+          list.push({
+            day: 0
+          });
+        }
       }
       for (let i = 1; i <= allday; i++) {
         list.push({
@@ -67,6 +84,10 @@ export default {
 };
 </script>
 <style>
+.iconfont {
+  font-family: iconfont;
+  cursor: pointer;
+}
 .cander {
   display: flex;
   flex-direction: column;
@@ -105,6 +126,7 @@ export default {
   text-align: center;
   flex: 6;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 .cander_main_top_inner {
   width: 15%;
