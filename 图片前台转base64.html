@@ -39,13 +39,14 @@
 			var filetest = file.files[0];
 			var img = window.URL.createObjectURL(filetest); // 创建文件的url对象可以取到blob链接(二进制)
 			console.log(img);
+			inimg.setAttribute('src', img)
 			var render = new FileReader(); // 创建读取文件对象
 			
 			render.readAsDataURL(filetest); // 执行读取文件操作 //readAsDataURL是render中读取文件的方法 具体可看https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader
 			render.onload=function(e) {    // 当文件读取完成时间
-				alert('文件读取完成');
-						console.log(e.target.result);
-				inimg.setAttribute('src', e.target.result);
+				// alert('文件读取完成');
+						// console.log(e.target.result); // 输出base64
+				// inimg.setAttribute('src', e.target.result);
 			};
 		}
 		cleanimg.onclick = function() {

@@ -13,7 +13,12 @@ const router = new VueRouter({
         { path: '/three', component: () => import('../components/three.vue') },
         { path: '/four', component: () => import('../components/four.vue') },
         { path: '/five', component: () => import('../components/five.vue') },
-        { path: '/six', component: () => import('../components/treenodes/index.vue') }
+        { path: '/six', component: () => import('../components/treenodes/index.vue') },
+        { path: '/seven', component: () => import('../components/seven.vue') },
+        { path: '/eit', component: () => import('../components/eit.vue') },
+        { path: '/nie', component: () => import('../components/nie.vue') },
+        { path: '/ten', component: () => import('../components/ten.vue') },
+        { path: '/elelven', component: () => import('../components/elelven.vue') }
     ]
 })
 

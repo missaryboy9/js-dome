@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,14 @@
 		canvas {
 			display: none;
 		}
-		video{
+
+		video {
 			width: 600px;
 			height: 400px;
 		}
 	</style>
 </head>
+
 <body>
 	<button id="btn">打开摄像头</button>
 	<button id="btn1">关闭摄像头</button>
@@ -31,19 +34,19 @@
 	var img = document.querySelector("#img");
 	var canvas = document.querySelector("#cancas");
 	var localMediaStream;
-	var callback = function(err) {
-         console.log("The following error occurred: " + err.name);
-      };
+	var callback = function (err) {
+		console.log("The following error occurred: " + err.name);
+	};
 	btn1.onclick = () => {
-		navigator.getUserMedia({video: true, audio: false}, function(stream) {
-                video.src = window.URL.createObjectURL(stream); 
-				localMediaStream=stream; 
-                }, function(e) { 
-                    console.log('Fine, you get a movie instead of your beautiful face ;)'); 
-                } 
-            );
-			localMediaStream.getTracks()[0].stop(); 
-			video.src="";
+		navigator.getUserMedia({ video: true, audio: false }, function (stream) {
+			video.src = window.URL.createObjectURL(stream);
+			localMediaStream = stream;
+		}, function (e) {
+			console.log('Fine, you get a movie instead of your beautiful face ;)');
+		}
+		);
+		localMediaStream.getTracks()[0].stop();
+		video.src = "";
 	}
 	btn.onclick = () => {
 		/* navigator.getMedia = navigator.getUserMedia ||
@@ -58,7 +61,7 @@
 			video.src = window.URL.createObjectURL('strem');
 			video.play();
 		}) */
-		if(navigator.getUserMedia) {
+		if (navigator.getUserMedia) {
 			navigator.getUserMedia({
 				video: true
 			}, (strem) => {
@@ -75,9 +78,9 @@
 				console.log(strem);
 				video.src = window.URL.createObjectURL(strem);
 				setTimeout(() => {
-				video.play();
+					video.play();
 				}, 1000);
-				
+
 			}, callback)
 		} else if (navigator.mozGetUserMedia) {
 			navigator.mozGetUserMedia({
@@ -86,14 +89,14 @@
 			}, (strem) => {
 				video.mozSrcObject = stream;
 				setTimeout(() => {
-				video.play();
+					video.play();
 				}, 1000);
-				
+
 			}, callback)
 		}
-		
+
 	}
-	jeitu.onclick = function() {
+	jeitu.onclick = function () {
 		canvas.getContext('2d').drawImage(video, 0, 0, 600, 400);
 		img.src = canvas.toDataURL('image/png');
 		console.log(img.src);
@@ -102,7 +105,8 @@
 		video: true,
 		audio: false
 	}),function(steam) {
-		
+
 	} */
 </script>
+
 </html>

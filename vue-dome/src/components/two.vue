@@ -26,7 +26,7 @@ export default {
   directives: {
     posdialog: {
       // 指令的定义
-      inserted: function(el) {
+      inserted: function (el) {
         const dragDom = el.querySelector(".el-dialog");
         dragDom.style.left = `40%`;
         dragDom.style.top = `-13%`;

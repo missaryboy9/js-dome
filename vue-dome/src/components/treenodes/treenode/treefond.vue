@@ -29,7 +29,7 @@ export default {
   props: ["folder"],
   data: function() {
     return {
-      show: false
+      show: true
     };
   },
   methods: {

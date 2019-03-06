@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --config webpack.config.dev.js --progress --open --hot"
+    "dev": "webpack-dev-server --config webpack.config.dev.js --progress --open --hot",
+    "build": "node build/build.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "vue-loader": "^15.4.2",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.17",
+    "vue2-flip-countdown": "^0.5.2",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"

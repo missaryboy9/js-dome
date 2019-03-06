@@ -1,64 +1,60 @@
 <template>
   <div>
+	<el-button @click="add">增加cookie</el-button>
+	<el-button @click="del">删除cookie</el-button>
+	<el-button @click="addresize">添加resize</el-button>
+	<el-button @click="delresize">清除resize</el-button>
+	<a href="https://vuejs.org/images/logo.png?id=11111111111&callback=">1111</a>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      websock: null
-    }
-  },
-  methods: {
-    threadPoxi() {
-      // 实际调用的方法
-      //参数
-      const agentData = 'mymessage'
-      //若是ws开启状态
-      if (this.websock.readyState === this.websock.OPEN) {
-        this.websocketsend(agentData)
-      }
-      // 若是 正在开启状态，则等待300毫秒
-      else if (this.websock.readyState === this.websock.CONNECTING) {
-        let that = this //保存当前对象this
-        setTimeout(function() {
-          that.websocketsend(agentData)
-        }, 300)
-      }
-      // 若未开启 ，则等待500毫秒
-      else {
-        this.initWebSocket()
-        let that = this //保存当前对象this
-        setTimeout(function() {
-          that.websocketsend(agentData)
-        }, 500)
-      }
-    },
-    initWebSocket() {
-      //初始化weosocket
-      //ws地址
-      const wsuri = process.env.WS_API + '/websocket/threadsocket'
-      this.websock = new WebSocket(wsuri)
-      this.websock.onmessage = this.websocketonmessage
-      this.websock.onclose = this.websocketclose
-    },
-    websocketonmessage(e) {
-      //数据接收
-      const redata = JSON.parse(e.data)
-      console.log(redata.value)
-    },
-    websocketsend(agentData) {
-      //数据发送
-      this.websock.send(agentData)
-    },
-    websocketclose(e) {
-      //关闭
-      console.log('connection closed (' + e.code + ')')
-    }
-  },
-  created() {
-    // this.initWebSocket()
-  }
+data() {
+	return {
+		
+	}
+},
+methods:{
+	addresize(){
+		window.addEventListener('resize', this.alert)
+	},
+	alert() {
+		alert(1)
+	},
+	callback() {
+		alert(1)
+	},
+	add() {
+		document.cookie = "name=setcookie;path=/";
+// 		var evt = document.createEvent("KeyboardEvent");
+// 		evt.initKeyboardEvent("keydown", true, false, window, 'U+0009',0,false,false,true,false,false); 
+// 		evt.currentTarget.dispatchEvent(evt);
+//                 if(nowEle==inputs[inputs.length-1])nowEle=document;
+//                 dicument.focus && nowEle.focus();
+//                 dicument.dispatchEvent(e);
+	},
+	del() {
+		// document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+// 		var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+// 				if(keys) {
+// 					for(var i = keys.length; i--;)
+// 						document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+// 				}
+			var cookies = document.cookie.split(";");
+				for (var i = 0; i < cookies.length; i++) {
+					var cookie = cookies[i];
+					var eqPos = cookie.indexOf("=");
+					var  name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+					document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"+"; path=/" ;
+				}
+	},
+	delresize() {
+		window.removeEventListener('resize', this.alert)
+	}
+},
+created() {
+	window.addEventListener('resize', this.alert)
+}
 }
 </script>
