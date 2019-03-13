@@ -18,7 +18,8 @@ const router = new VueRouter({
         { path: '/eit', component: () => import('../components/eit.vue') },
         { path: '/nie', component: () => import('../components/nie.vue') },
         { path: '/ten', component: () => import('../components/ten.vue') },
-        { path: '/elelven', component: () => import('../components/elelven.vue') }
+        { path: '/elelven', component: () => import('../components/elelven.vue') },
+        { path: '/copypicture', component: () => import('../components/copypicture.vue') }
     ]
 })
 

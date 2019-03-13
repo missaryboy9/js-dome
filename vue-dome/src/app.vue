@@ -12,6 +12,7 @@
     <router-link to="/nie">时刻时间</router-link>
     <router-link to="/ten">外部文件</router-link>
     <router-link to="/elelven">websocket</router-link>
+    <router-link to="/copypicture">copypicture</router-link>
     <router-view></router-view>
   </div>
 </template>
