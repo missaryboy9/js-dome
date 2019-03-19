@@ -159,6 +159,77 @@
 
 // task1(1).then(task2).then(task3)
 
-this.$jsonp('url', data, function callback (e) {
-    console.log(e)
-})
+// this.$jsonp('url', data, function callback (e) {
+//     console.log(e)
+// })
+
+// setTimeout(() => {
+//     console.log(1)
+// }, 100);
+
+// setTimeout(() => {
+//     console.log(2)
+// }, 0);
+
+// console.log(3)
+
+
+/**
+ * @param {parseInt(x,y)} parseInt 转换为10进制第一个参数为需要转换的数据 第二个参数是这个数据是什么进制
+ * @param {(x).toString(y)} toString x:需要转换的数据  y:转换为什么进制
+ */
+// parseInt转16进制
+// console.log((7233).toString(16))
+// console.log(parseInt('1c41', 16))
+//2进制到10进制；
+// parseInt(10, 2) //=>2
+// //2进制到10进制；
+// parseInt(100, 2) //=>4
+// //16进制到10进制
+// parseInt(12, 16) //=>18
+// //8进制到10进制
+// parseInt(12, 8); //=>10
+// //10进制转为16进制
+// (10).toString(16) // =>"a"
+//     //8进制转为16进制
+//     (012).toString(16) // =>"a"
+//     //16进制转为10进制
+//     (0x16).toString(10) // =>"22"
+//     //16进制转为8进制
+//     (0x16).toString(8) // =>"26"
+//     //10进制转为2进制 //=>
+//     (1111).toString(2) // => "10001010111"
+//     //8进制转为2进制 //=>
+//     (01111).toString(2) //=>"1001001001"
+//     //16进制转为2进制 //=>
+//     (0x16).toString(2) // => "10110"
+
+/**
+ * @async call
+ * @async apply
+ * @constant fun.call(obj,1,2,3) call中传入的是单个参数值
+ * @constant fun.apply(obj,[1,2,3]) apply中传入的是参数集合
+ */
+let a = function () {
+    this.name = 'red'
+    this.say = function () {
+        console.log(this.color)
+    }
+}
+// a.prototype = {
+//     color: 'red',
+//     say: function () {
+//         console.log(this.color)
+//     }
+// }
+let b = new a
+e = {
+    color: 'blue'
+}
+b.say.apply(e)
+d = {
+    color: 'readonly',
+    haha: () => {
+
+    }
+}

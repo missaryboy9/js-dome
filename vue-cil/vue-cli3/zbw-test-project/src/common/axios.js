@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+import * as crypto from './cropty'
 // import { version } from 'punycode';
 console.log(qs)
 // const dataAxios = {
