@@ -9,29 +9,33 @@
       v-model="collapsed"
     >
       <div class="logo center">
-        <H3>ZBW</H3>
+        <H3>{{name}}</H3>
       </div>
       <a-menu
         theme="dark"
         mode="inline"
         :defaultSelectedKeys="['1']"
       >
-        <template v-for="item in menuslist">
+        <template v-for="(item,index) in menuslist">
           <a-menu-item
             v-if="!item.isclosspan"
-            :key="item.key"
+            :key=index
             @click="router(item.path)"
           >
             <a-icon type="pie-chart" />
             <span>{{item.name}}</span>
           </a-menu-item>
-          <a-sub-menu v-else>
+          <a-sub-menu
+            v-else
+            :key=index
+          >
             <span slot="title">
               <a-icon type="setting" />
               <span>{{item.name}}</span>
             </span>
             <a-menu-item
-              v-for="items in item.children"
+              v-for="(items,i) in item.children"
+              :key=packtostring(index,i)
               @click="router(item.path+'/'+items.path)"
             >{{items.name}}</a-menu-item>
           </a-sub-menu>
@@ -100,6 +104,7 @@
   </a-layout>
 </template>
 <script>
+import state from './vuex/stores.js'
 export default {
   data () {
     return {
@@ -124,12 +129,22 @@ export default {
   methods: {
     router (e) {
       this.$router.push(e)
+    },
+    packtostring (e, j) {
+      // let a = JSON.stringify(e) + JSON.stringify(j)
+      // alert(typeof a)
+      return JSON.stringify(e) + JSON.stringify(j)
+    }
+  },
+  computed: {
+    name () {
+      return state.state.const === 0 ? 'ZBW' : state.state.const
     }
   },
   created () {
     console.log(this.$router.options.routes)
     this.menuslist = this.$router.options.routes
-  },
+  }
 }
 </script>
 <style>

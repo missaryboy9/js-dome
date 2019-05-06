@@ -5,7 +5,8 @@ vue.use(Vuex)
 
 const state = {
   basename: 'basevuecli',
-  baserouter: []
+  baserouter: [],
+  const: 0
 }
 const mutations = {
   setbasename (value) {
@@ -13,6 +14,12 @@ const mutations = {
   },
   setbaserouter (value) {
     state.basename = value
+  },
+  addconst () {
+    state.const++
+  },
+  lessconst () {
+    state.const--
   }
 }
 

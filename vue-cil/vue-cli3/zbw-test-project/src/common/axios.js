@@ -3,6 +3,7 @@ import qs from 'qs'
 import * as crypto from './cropty'
 // import { version } from 'punycode';
 console.log(qs)
+console.log(crypto)
 // const dataAxios = {
 //   baseUrl: '/api'
 // }

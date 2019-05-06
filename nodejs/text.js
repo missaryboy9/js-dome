@@ -210,26 +210,35 @@
  * @constant fun.call(obj,1,2,3) call中传入的是单个参数值
  * @constant fun.apply(obj,[1,2,3]) apply中传入的是参数集合
  */
-let a = function () {
-    this.name = 'red'
-    this.say = function () {
-        console.log(this.color)
-    }
-}
+// let a = function () {
+//     this.name = 'red'
+//     this.say = function () {
+//         console.log(this.color)
+//     }
+// }
 // a.prototype = {
 //     color: 'red',
 //     say: function () {
 //         console.log(this.color)
 //     }
 // }
-let b = new a
-e = {
-    color: 'blue'
-}
-b.say.apply(e)
-d = {
-    color: 'readonly',
-    haha: () => {
+// let b = new a
+// e = {
+//     color: 'blue'
+// }
+// b.say.apply(e)
+// d = {
+//     color: 'readonly',
+//     haha: () => {
 
-    }
-}
+//     }
+// }
+/**
+ * @constant jquery
+ *
+ */
+// let $ = require('https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+// console.log($)
+// let script = document.createElement('script')
+// script.setAttribute('src', 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+// console.log($)
